@@ -15,6 +15,8 @@ color = 0
 while running:
   ev = pygame.event.get()
   for event in ev:
+    if pygame.key.get_pressed()[pygame.KMOD_LSHIFT]:
+        print('test')
     if event.type == pygame.MOUSEBUTTONUP:
         if event.button == 3:
             i += 1
@@ -25,6 +27,7 @@ while running:
             pygame.draw.rect(screen, newtuple, rect)
             pygame.display.flip()
         if event.button == 4:
+
             color += 0.03
             color %= 360
             rgb = colorsys.hsv_to_rgb(color, 1, 1)
