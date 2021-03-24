@@ -32,11 +32,11 @@ while running:
         if event.type == pygame.MOUSEBUTTONUP:
             if event.button == 4:
                 size += 1
-                sep += width/2
+                sep += height/2
                 draw_pixels(size, sep)
             if event.button == 5:
                 size -= 1
-                sep -= width/2
+                sep -= height/2
                 if sep <= 0:
                     sep = 0
                 draw_pixels(size, sep)
