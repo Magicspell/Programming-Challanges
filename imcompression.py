@@ -1,6 +1,7 @@
 import pygame
 from PIL import Image, ImageFilter
 import colorsys
+import zlib
 
 
 im = Image.open(input('Which image? '))
@@ -47,12 +48,23 @@ def grayscale():
 def blurred(size):
     blurImage = im.filter(ImageFilter.BoxBlur(size))
     blurpix = blurImage.load()
+    f = open('bytes.txt','wb')
+    pix_bytes = bytearray(0)
     for w in range(width):
         for h in range(height):
             hsv1 = colorsys.rgb_to_hsv(pix[w,h][0], pix[w,h][1], pix[w,h][2])
             blurhsv = colorsys.rgb_to_hsv(blurpix[w,h][0], blurpix[w,h][1], blurpix[w,h][2])
             rgb1 = colorsys.hsv_to_rgb(round(blurhsv[0], 5), round(blurhsv[1], 5), round(hsv1[2], 5))
+            # pix_byte = hsv1[2].to_bytes(2, byteorder='little')
+            pix_bytes.append(hsv1[2])
+            # pix_bytes = zlib.compress(pix_bytes)
+            # print(pix_bytes)
+            # print(int.from_bytes(pix_bytes, 'little'))
             screen.set_at((w, h), rgb1)
+    
+    f.write(zlib.compress(pix_bytes))
+    # f.write(pix_bytes)
+    f.close()
 
 # i = 0
 # for pixel in get_2x2(0):
@@ -67,6 +79,9 @@ def blurred(size):
 #     i += 1
 
 size = 0
+blurred(size)
+print(size)
+pygame.display.flip()
 running = True
 while running:
     for event in pygame.event.get():

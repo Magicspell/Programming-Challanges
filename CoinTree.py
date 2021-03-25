@@ -35,7 +35,6 @@ running = True
 while running:
     i = 0
     new_prev_coords = prev_coords.copy()
-    prev_coords = 
     for coords in new_prev_coords:
         coinflip = random.randint(0,1)
         if coinflip == prev_flip:
