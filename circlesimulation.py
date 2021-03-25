@@ -9,6 +9,12 @@ mainclock = pygame.time.Clock()
 
 size = 100
 speed = 100
+bluechance = 2000
+
+x = random.randint(0, width-1)
+y = random.randint(0, height-1)
+pygame.draw.circle(screen, (0,0,255), (x,y), size)
+pygame.display.flip()
 
 running = True
 while running:
@@ -28,4 +34,16 @@ while running:
         size -= 2
         if size < 1:
             size = 1
+    elif color == (0,0,255):
+        if random.randint(0,2) == 1:
+            pygame.draw.circle(screen, (0,0,255), (x,y), size+10)
+            pygame.display.flip()
+        else:
+            pygame.draw.circle(screen, (0,0,0), (x,y), size)
+            pygame.display.flip()
+    if random.randint(0,bluechance) == 1:
+        x = random.randint(0, width-1)
+        y = random.randint(0, height-1)
+        pygame.draw.circle(screen, (0,0,255), (x,y), size)
+        pygame.display.flip()
     mainclock.tick(speed)
