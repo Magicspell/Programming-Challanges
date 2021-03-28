@@ -6,6 +6,9 @@ A python port of The Coding Train's [particle system](https://www.youtube.com/wa
 
 This was very informative to do, and was my first time porting from js to python (the superior language).
 
+## DotsAndSpots
+A simulation of a "war" between two colors, blue and red. There are gray squares the will create a new starting point for the color that touches it first. Holding left-click will draw new circles, scroll-wheel withh change color to draw, and right-click creates a gray square.
+
 ## Sim#4
 Messing around with lines and endpoints.
 
