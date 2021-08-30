@@ -8,7 +8,7 @@ pygame.display.set_caption('Circle sim')
 mainclock = pygame.time.Clock()
 
 size = 100
-speed = 100
+speed = 10000
 bluechance = 2000
 
 x = random.randint(0, width-1)

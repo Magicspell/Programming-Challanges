@@ -6,7 +6,8 @@ pygame.display.set_caption('Grapher')
 mainclock = pygame.time.Clock()
 
 def calculate_y(x):
-    y = 0.02*x**2
+    # y = 0.002*x**2
+    y = 30*(1.03**x) + 1
     return y
 
 def graph():
